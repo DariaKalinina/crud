@@ -1,0 +1,11 @@
+.person{
+  display: flex;
+}
+
+.person__item{
+  padding: 15px;
+}
+
+.person__item--text-bold{
+  font-weight: bold;
+}
