@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NoteBook from '../NoteBook';
-import './style.css';
+import NoteBook from './NoteBook';
+import './../index.css';
 
 class App extends Component {
   render() {

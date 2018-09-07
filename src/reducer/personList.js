@@ -1,10 +1,9 @@
 import data from '../data';
 
-localStorage.setItem('data', JSON.stringify(data));
 localStorage.data = JSON.stringify(data);
-console.log('data', data);
+console.log('localStorage.data', localStorage.data);
 
-export default function personList(state = data, action) {
+export default function personList(state = JSON.parse(localStorage.data), action) {
   const { type, payload } = action;
   console.log('type и payload нет', type, payload);
 

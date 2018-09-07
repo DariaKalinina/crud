@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
+import './../index.css';
 
 class Person extends Component {
 
@@ -10,6 +10,12 @@ class Person extends Component {
         <div className="person__item person__item--text-bold">{person.name} {person.surname}</div>
         <div className="person__item">Телефон: {person.phone}</div>
         <div className="person__item">Электронная почта: {person.email}</div>
+        <div className="button">
+          <a href="#" className="button__link">Изменить</a>
+        </div>
+        <div className="button">
+          <a href="#" className="button__link">Удалиить</a>
+        </div>
       </div>
     );
   }
