@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import './../index.css';
 import Person from './Person'
 import {changePage} from './../AC';
@@ -12,9 +12,10 @@ class PersonList extends Component {
   };
 
   render() {
-    const {persons, isOpen} = this.props;
-    console.log('this.props PersonList=====================', this.props);
-    if (isOpen !== 'personList') return null;
+    const {persons, currentPage} = this.props;
+    if (currentPage.currentPage !== 'personList') {
+      return null;
+    }
     return (
       <div className="wrapper-personList">
         <ul className="personList">
@@ -35,9 +36,8 @@ class PersonList extends Component {
   }
 }
 
-export default connect(state => (
-  console.log('state==============', state),
-  {
-    persons: state.persons
-  }
-), {changePage})(PersonList);
+const mapStateToProps = (state) => ({
+  persons: state.persons
+});
+
+export default connect( mapStateToProps, {changePage})(PersonList);

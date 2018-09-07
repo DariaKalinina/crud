@@ -26,14 +26,15 @@ export function addItem(data) {
 export function saveItem(data) {
   return {
     type: SAVE,
-    payload: { data }
+    payload: data
   }
 }
 
-export function changePage(id) {
+export function changePage(id, data = {}) {
   return {
     type: CHANGE_PAGE,
-    payload: id
+    payload: id,
+    data: data
   }
 }
 

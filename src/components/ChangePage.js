@@ -1,30 +1,49 @@
 import React, { Component } from 'react';
+import {changePage} from './../AC';
+import {connect} from 'react-redux';
 import './../index.css';
 
 class ChangePage extends Component {
+  constructor(props) {
+    super(props);
+    console.log('проасы из конструктора', this.props);
+    this.state = {
+      name: this.props.name || '',
+      surname: this.props.surname || '',
+      phone: this.props.phone || '',
+      email: this.props.email || '',
+    };
+  };
+
+
+
+  handleSubmit = (e) => {
+    const {changePage} = this.props;
+    e.preventDefault();
+    changePage('personList');
+  };
+
+  handleChange = ({target}) => {
+    this.setState({[target.id]: target.value});
+  };
 
   render() {
-    const {isOpen} = this.props;
-    console.log('this.props ChangePage=====================', this.props);
-    if (isOpen !== 'changePage') return null;
+    const {currentPage, data} = this.props;
+    const placeholder = 'Введите значение';
+    console.log('currentPage, data ChangePage=====================',data);
+    if (currentPage.currentPage !== 'changePage') {
+      return null;
+    }
     return (
       <form className="form" onSubmit={this.handleSubmit}>
-        <label>
           Имя:
-          <input type="text" value={1} onChange={this.handleChange} />
-        </label>
-        <label>
+          <input type="text" id="name" value={this.state.name} placeholder={placeholder} onChange={this.handleChange} />
           Фамилия:
-          <input type="text" value={2} onChange={this.handleChange} />
-        </label>
-        <label>
+          <input type="text" id="surname" value={this.state.surname} placeholder={placeholder} onChange={this.handleChange} />
           Телефон:
-          <input type="text" value={3} onChange={this.handleChange} />
-        </label>
-        <label>
+          <input type="text" id="phone" value={this.state.phone} placeholder={placeholder} onChange={this.handleChange} />
           Электронная почта:
-          <input type="text" value={4} onChange={this.handleChange} />
-        </label>
+          <input type="text" id="email" value={this.state.email} placeholder={placeholder} onChange={this.handleChange} />
         <br/>
         <input type="submit" className="button__link" value="Сохранить" />
       </form>
@@ -32,4 +51,8 @@ class ChangePage extends Component {
   }
 }
 
-export default ChangePage;
+const mapStateToProps = (state) => ({
+  data: state.currentPage.data
+});
+
+export default connect( mapStateToProps, {changePage})(ChangePage);

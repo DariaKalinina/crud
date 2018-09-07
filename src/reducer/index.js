@@ -3,6 +3,6 @@ import personList from './personList';
 import changePage from './changePage';
 
 export default combineReducers({
-  isOpen: changePage,
+  currentPage: changePage,
   persons: personList
 })

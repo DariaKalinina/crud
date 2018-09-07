@@ -1,17 +1,16 @@
 import { CHANGE_PAGE } from './../constants';
 console.log('localStorage', localStorage);
 
-localStorage.isOpen = 'personList';
+const currentPageDefault = {'currentPage': 'personList'};
 
-export default function changePage(state = localStorage.isOpen, action) {
-  const { type, payload } = action;
-  console.log('type и payload нет', type, payload);
+export default function changePage(currentPage = currentPageDefault, action) {
+  const { type, payload, data } = action;
+  console.log('type и payload', type, payload, data);
 
   switch (type) {
     case CHANGE_PAGE:
-      localStorage.isOpen = payload;
-      return localStorage.isOpen
+      currentPage = payload;
+      return {currentPage, data}
   }
-  console.log('state', state);
-  return state
+  return currentPage;
 }
