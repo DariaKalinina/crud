@@ -13,9 +13,9 @@ class PersonList extends Component {
 
   render() {
     const {persons, currentPage} = this.props;
-    if (currentPage.currentPage !== 'personList') {
-      return null;
-    }
+    // if (currentPage.currentPage !== 'personList') {
+    //   return null;
+    // }
     return (
       <div className="wrapper-personList">
         <ul className="personList">

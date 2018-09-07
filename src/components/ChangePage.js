@@ -8,10 +8,10 @@ class ChangePage extends Component {
     super(props);
     console.log('проасы из конструктора', this.props);
     this.state = {
-      name: this.props.name || '',
-      surname: this.props.surname || '',
-      phone: this.props.phone || '',
-      email: this.props.email || '',
+      name: this.props.data.name || '',
+      surname: this.props.data.surname || '',
+      phone: this.props.data.phone || '',
+      email: this.props.data.email || '',
     };
   };
 
@@ -31,9 +31,9 @@ class ChangePage extends Component {
     const {currentPage, data} = this.props;
     const placeholder = 'Введите значение';
     console.log('currentPage, data ChangePage=====================',data);
-    if (currentPage.currentPage !== 'changePage') {
-      return null;
-    }
+    // if (currentPage.currentPage !== 'changePage') {
+    //   return null;
+    // }
     return (
       <form className="form" onSubmit={this.handleSubmit}>
           Имя:

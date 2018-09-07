@@ -11,8 +11,13 @@ class NoteBook extends Component {
     const currentPage = this.props.currentPage;
     return (
       <div className="noteBook">
-        <PersonList currentPage={currentPage}/>
-        <ChangePage currentPage={currentPage} />
+        {
+          (currentPage.currentPage === 'personList') ?
+            <PersonList /> :
+            <ChangePage currentPage={currentPage}/>
+        }
+        {/*<PersonList currentPage={currentPage}/>*/}
+        {/*<ChangePage currentPage={currentPage} />*/}
       </div>
     );
   }
