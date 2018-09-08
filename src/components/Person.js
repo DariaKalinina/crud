@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import {changePage} from './../AC';
+import {changePage, deleteItem} from './../AC';
 import './../index.css';
 import {connect} from "react-redux";
 
 class Person extends Component {
-  handleClick = e => {
+  changeClick = e => {
     const {changePage, person} = this.props;
     e.preventDefault();
     changePage('changePage', person);
+  };
+
+  deleteClick = e => {
+    const {deleteItem, person} = this.props;
+    e.preventDefault();
+    deleteItem(person.id);
   };
 
   render() {
@@ -18,10 +24,10 @@ class Person extends Component {
         <div className="person__item">Телефон: {person.phone}</div>
         <div className="person__item">Электронная почта: {person.email}</div>
         <div className="button">
-          <a href="#" className="button__link" onClick={this.handleClick}>Изменить</a>
+          <a href="#" className="button__link" onClick={this.changeClick}>Изменить</a>
         </div>
         <div className="button">
-          <a href="#" className="button__link">Удалиить</a>
+          <a href="#" className="button__link" onClick={this.deleteClick}>Удалиить</a>
         </div>
       </div>
     );
@@ -32,4 +38,4 @@ const mapStateToProps = (state) => ({
   persons: state.persons
 });
 
-export default connect( mapStateToProps, {changePage})(Person);
+export default connect( mapStateToProps, {changePage, deleteItem})(Person);

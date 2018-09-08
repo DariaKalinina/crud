@@ -12,10 +12,7 @@ class PersonList extends Component {
   };
 
   render() {
-    const {persons, currentPage} = this.props;
-    // if (currentPage.currentPage !== 'personList') {
-    //   return null;
-    // }
+    const {persons} = this.props;
     return (
       <div className="wrapper-personList">
         <ul className="personList">

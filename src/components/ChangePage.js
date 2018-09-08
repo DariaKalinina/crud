@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {changePage} from './../AC';
+import {changePage, saveItem} from './../AC';
 import {connect} from 'react-redux';
 import './../index.css';
 
@@ -12,14 +12,14 @@ class ChangePage extends Component {
       surname: this.props.data.surname || '',
       phone: this.props.data.phone || '',
       email: this.props.data.email || '',
+      id: this.props.data.id || '',
     };
   };
 
-
-
   handleSubmit = (e) => {
-    const {changePage} = this.props;
+    const {changePage, saveItem} = this.props;
     e.preventDefault();
+    saveItem(this.state);
     changePage('personList');
   };
 
@@ -28,12 +28,7 @@ class ChangePage extends Component {
   };
 
   render() {
-    const {currentPage, data} = this.props;
     const placeholder = 'Введите значение';
-    console.log('currentPage, data ChangePage=====================',data);
-    // if (currentPage.currentPage !== 'changePage') {
-    //   return null;
-    // }
     return (
       <form className="form" onSubmit={this.handleSubmit}>
           Имя:
@@ -55,4 +50,4 @@ const mapStateToProps = (state) => ({
   data: state.currentPage.data
 });
 
-export default connect( mapStateToProps, {changePage})(ChangePage);
+export default connect( mapStateToProps, {changePage, saveItem})(ChangePage);

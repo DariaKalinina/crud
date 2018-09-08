@@ -1,13 +1,13 @@
 import {
-  CHANGE, DELETE, ADD, SAVE, CHANGE_PAGE
+  DELETE, SAVE, CHANGE_PAGE
 } from '../constants';
 
-export function change(id) {
-    return {
-      type: CHANGE,
-      payload: id
-    }
-}
+// export function change(id) {
+//     return {
+//       type: CHANGE,
+//       payload: id
+//     }
+// }
 
 export function deleteItem(id) {
     return {
@@ -16,12 +16,12 @@ export function deleteItem(id) {
     }
 }
 
-export function addItem(data) {
-    return {
-      type: ADD,
-      payload: { data }
-    }
-}
+// export function addItem(data) {
+//     return {
+//       type: ADD,
+//       payload: { data }
+//     }
+// }
 
 export function saveItem(data) {
   return {
