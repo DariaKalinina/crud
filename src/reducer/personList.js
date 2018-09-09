@@ -8,17 +8,14 @@ export default function personList(state = JSON.parse(localStorage.data), action
 
   switch (type) {
     case SAVE:
-      console.log('payload.id ----------',  payload.id);
-      return ([
+      console.log('payload.id ------  payload.id');
+      return ({
         ...state,
-        {'id': (payload.id === null)
-          ? state.length+1
-          : payload.id,
-        ...payload}
-        ]);
+      '1234556677': {...payload}
+      });
     case DELETE:
-      const newState = [...state];
-      newState.splice(payload, 1);
+      const newState = {...state};
+      delete newState[payload];
       console.log('payload.id и  newState----------',  payload, newState);
       return newState;
   }

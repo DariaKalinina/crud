@@ -13,13 +13,14 @@ class PersonList extends Component {
 
   render() {
     const {persons} = this.props;
+    console.log('persons in PersonList', persons, Object.keys(persons));
     return (
       <div className="wrapper-personList">
         <ul className="personList">
           {
-            persons.map( (person) => (
-                <li className="personList__item" key={person.id}>
-                  <Person person={person}/>
+            Object.keys(persons).map( (id) => (
+                <li className="personList__item" key={id}>
+                  <Person person={persons[id]} id={id}/>
                 </li>
               )
             )

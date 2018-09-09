@@ -10,14 +10,15 @@ class Person extends Component {
     changePage('changePage', person);
   };
 
-  deleteClick = e => {
-    const {deleteItem, person} = this.props;
+  deleteClick = (e) => {
+    const {deleteItem, id} = this.props;
     e.preventDefault();
-    deleteItem(person.id);
+    deleteItem(id);
   };
 
   render() {
   const { person } = this.props;
+  console.log('person from Person', person);
     return (
       <div className="person">
         <div className="person__item person__item--text-bold">{person.name} {person.surname}</div>
