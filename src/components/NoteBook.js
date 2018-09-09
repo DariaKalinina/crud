@@ -2,29 +2,27 @@ import React, { Component } from 'react';
 import './../index.css';
 import {connect} from 'react-redux'
 import PersonList from './PersonList';
-import ChangePage from './ChangePage';
+import Form from './Form';
 
 class NoteBook extends Component {
 
-
   render() {
-    const currentPage = this.props.currentPage;
+    const {currentPage, id} = this.props;
     return (
       <div className="noteBook">
         {
-          (currentPage.currentPage === 'personList') ?
+          (currentPage === 'personList') ?
             <PersonList /> :
-            <ChangePage currentPage={currentPage}/>
+            <Form id={id}/>
         }
-        {/*<PersonList currentPage={currentPage}/>*/}
-        {/*<ChangePage currentPage={currentPage} />*/}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  currentPage: state.currentPage
+  currentPage: state.currentPage,
+  id: state.personId
 });
 
 export default connect( mapStateToProps)(NoteBook);

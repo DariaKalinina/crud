@@ -1,40 +1,33 @@
 import {
-  DELETE, SAVE, CHANGE_PAGE
+  DELETE, SAVE, CHANGE, CHANGE_PAGE
 } from '../constants';
 
-// export function change(id) {
-//     return {
-//       type: CHANGE,
-//       payload: id
-//     }
-// }
-
-export function deleteItem(id) {
-    return {
-      type: DELETE,
-      payload: id
-    }
-}
-
-// export function addItem(data) {
-//     return {
-//       type: ADD,
-//       payload: { data }
-//     }
-// }
-
-export function saveItem(data) {
+export function change(id) {
   return {
-    type: SAVE,
-    payload: data
+    type: CHANGE,
+    payload: id
   }
 }
 
-export function changePage(id, data = {}) {
+export function deleteItem(id) {
+  return {
+    type: DELETE,
+    payload: id
+  }
+}
+
+export function saveItem(id, data) {
+  return {
+    type: SAVE,
+    payload: {data},
+    generateId: id
+  }
+}
+
+export function changePage(string) {
   return {
     type: CHANGE_PAGE,
-    payload: id,
-    data: data
+    payload: string
   }
 }
 

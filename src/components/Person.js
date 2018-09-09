@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import {changePage, deleteItem} from './../AC';
+import {changePage, deleteItem, change} from './../AC';
 import './../index.css';
 import {connect} from "react-redux";
 
 class Person extends Component {
   changeClick = e => {
-    const {changePage, person} = this.props;
+    const {changePage, change, id} = this.props;
     e.preventDefault();
-    changePage('changePage', person);
+    change(id);
+    changePage('changePage');
   };
 
   deleteClick = (e) => {
@@ -18,7 +19,6 @@ class Person extends Component {
 
   render() {
   const { person } = this.props;
-  console.log('person from Person', person);
     return (
       <div className="person">
         <div className="person__item person__item--text-bold">{person.name} {person.surname}</div>
@@ -35,8 +35,6 @@ class Person extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  persons: state.persons
-});
+const mapStateToProps = (state) => ({});
 
-export default connect( mapStateToProps, {changePage, deleteItem})(Person);
+export default connect( mapStateToProps, {changePage, change, deleteItem})(Person);
