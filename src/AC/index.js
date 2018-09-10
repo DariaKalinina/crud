@@ -1,5 +1,5 @@
 import {
-  DELETE, SAVE, CHANGE, CHANGE_PAGE, BACK
+  DELETE, SAVE, CHANGE, CHANGE_PAGE, BACK, FETCH_DATA
 } from '../constants';
 
 export function change(id) {
@@ -37,3 +37,10 @@ export function changePage(string) {
   }
 }
 
+export function fetchData(array, url) {
+  return {
+    type: FETCH_DATA,
+    payload: array,
+    url: url
+  }
+}
