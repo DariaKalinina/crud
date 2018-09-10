@@ -17,9 +17,9 @@ class PersonList extends Component {
       <div className="wrapper-personList">
         <ul className="personList">
           {
-            Object.keys(persons).map( (id) => (
-                <li className="personList__item" key={id}>
-                  <Person person={persons[id]} id={id}/>
+            persons.map( (person) => (
+                <li className="personList__item" key={person.id}>
+                  <Person person={person} id={person.id}/>
                 </li>
               )
             )

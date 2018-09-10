@@ -6,19 +6,18 @@ import './../index.css';
 class Form extends Component {
   constructor(props) {
     super(props);
-    console.log('пропсы из конструктора', this.props);
     this.state = {
-      name: this.props.id ? this.props.persons[this.props.id].name : '',
-      surname: this.props.id ? this.props.persons[this.props.id].surname : '',
-      phone: this.props.id ? this.props.persons[this.props.id].phone : '',
-      email: this.props.id ? this.props.persons[this.props.id].email : '',
+      name: this.props.person ? this.props.person.name : '',
+      surname: this.props.person ? this.props.person.surname : '',
+      phone: this.props.person ? this.props.person.phone : '',
+      email: this.props.person ? this.props.person.email : '',
     };
   };
 
   handleSubmit = (e) => {
-    const {changePage, saveItem, id} = this.props;
+    const {changePage, saveItem, person} = this.props;
     e.preventDefault();
-    saveItem((id ? id : null), this.state);
+    saveItem((person ? person.id : null), this.state);
     changePage('personList');
   };
 
@@ -57,7 +56,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  persons: state.persons
+  person: state.person
 });
 
 export default connect(mapStateToProps, {changePage, saveItem, back})(Form);

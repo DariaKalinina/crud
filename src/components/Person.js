@@ -5,9 +5,9 @@ import {connect} from "react-redux";
 
 class Person extends Component {
   changeClick = e => {
-    const {changePage, change, id} = this.props;
+    const {changePage, change, id, person} = this.props;
     e.preventDefault();
-    change(id);
+    change(person, id);
     changePage('changePage');
   };
 

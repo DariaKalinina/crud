@@ -7,13 +7,13 @@ import Form from './Form';
 class NoteBook extends Component {
 
   render() {
-    const {currentPage, id} = this.props;
+    const {currentPage, person} = this.props;
     return (
       <div className="noteBook">
         {
           (currentPage === 'personList') ?
             <PersonList /> :
-            <Form id={id}/>
+            <Form person={person}/>
         }
       </div>
     );
@@ -22,7 +22,7 @@ class NoteBook extends Component {
 
 const mapStateToProps = (state) => ({
   currentPage: state.currentPage,
-  id: state.personId
+  person: state.person
 });
 
 export default connect( mapStateToProps)(NoteBook);

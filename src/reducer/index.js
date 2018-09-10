@@ -6,5 +6,5 @@ import person from './person';
 export default combineReducers({
   currentPage: changePage,
   persons: personList,
-  personId: person
+  person: person
 })
