@@ -8,7 +8,7 @@ class MyStorage {
     if (this.storage === undefined) {
       this.init(data);
     }
-  }
+  };
 
   // инициируются данные для отправки в сеттер, где будут записаны
   init = (data) => {
@@ -24,37 +24,34 @@ class MyStorage {
       console.log('get storage  -------');
       return JSON.parse(localStorage[dbName]);
     }
-  }
+  };
 
   // сеттер в ячейку памяти записывает данные
   set storage(storage) {
     const { dbName } = this;
     console.log('set storage  -------');
     return localStorage[dbName] = JSON.stringify(storage);
-  }
+  };
 
-  addUser = (data) => {
+  addUser = (person, id) => {
+    const store = this.storage;
+    store.push({id: id, ...person});
+    this.storage = store;
+  };
 
-  }
+  changeUser = (person, id, rewrite) => {
+    const store = this.storage;
+    store.splice(rewrite, 1, {...person, id: id});
+    this.storage = store;
+  };
 
-  changeUser = (data) => {
-
-  }
-
-  deleteUser = (id) => {
-
-  }
+  deleteUser = (deleteIndex) => {
+    const store = this.storage;
+    store.splice(deleteIndex, 1);
+    this.storage = store;
+  };
 }
 
 const myStorage = new MyStorage(data);
 
 export default myStorage;
-
-
-
-// const store = myStorage.storage;
-// store[2323432] = {
-//   name: 'Серёженька'
-// };
-//
-// myStorage.storage = store;
