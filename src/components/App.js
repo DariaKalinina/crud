@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NoteBook from './NoteBook';
+import Pokemon from './Pokemon';
 import './../index.css';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
           <h1 className="app__title">Записная книга</h1>
         </header>
         <NoteBook />
+        <Pokemon />
       </div>
     );
   }
