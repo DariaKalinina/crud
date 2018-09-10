@@ -13,6 +13,7 @@ class PersonList extends Component {
 
   render() {
     const {persons} = this.props;
+    console.log('persons из компонента PersonList', persons);
     return (
       <div className="wrapper-personList">
         <ul className="personList">

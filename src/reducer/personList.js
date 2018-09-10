@@ -11,17 +11,21 @@ export default function personList(state = myStorage.storage, action) {
       });
 
       if (rewrite === -1) {
+        //начало работа с сервисом
         myStorage.addUser(payload.data, generateId);
-        console.log('сейчас state такой==========1', state);
+        //конец работа с сервисом
+
         return ([
           ...state,
           {...payload.data, id: generateId}
         ]);
       } else {
+        //начало работа с сервисом
         myStorage.changeUser(payload.data, generateId, rewrite);
-        console.log('сейчас state такой===========2', state);
+        //конец работа с сервисом
         const newState = [...state];
         newState.splice(rewrite, 1, {...payload.data, id: generateId});
+
         return newState;
       }
 
@@ -32,8 +36,10 @@ export default function personList(state = myStorage.storage, action) {
         return person.id === payload;
       });
       newState.splice(deleteIndex, 1);
+      //начало работа с сервисом
       myStorage.deleteUser(deleteIndex);
-      console.log('сейчас state такой========3', state);
+      //конец работа с сервисом
+
       return newState;
   }
 
