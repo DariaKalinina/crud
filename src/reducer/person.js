@@ -1,4 +1,4 @@
-import { CHANGE, SAVE } from './../constants';
+import { CHANGE, SAVE, BACK } from './../constants';
 
 export default function personList(state = null, action) {
   const { type, payload } = action;
@@ -8,6 +8,8 @@ export default function personList(state = null, action) {
       const newState = payload;
       return newState;
     case SAVE:
+      return null;
+    case BACK:
       return null;
   }
 

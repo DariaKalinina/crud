@@ -1,11 +1,17 @@
 import {
-  DELETE, SAVE, CHANGE, CHANGE_PAGE
+  DELETE, SAVE, CHANGE, CHANGE_PAGE, BACK
 } from '../constants';
 
 export function change(id) {
   return {
     type: CHANGE,
     payload: id
+  }
+}
+
+export function back() {
+  return {
+    type: BACK
   }
 }
 

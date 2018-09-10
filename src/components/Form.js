@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {changePage, saveItem} from './../AC';
+import {changePage, saveItem, back} from './../AC';
 import {connect} from 'react-redux';
 import './../index.css';
 
@@ -26,6 +26,13 @@ class Form extends Component {
     this.setState({[target.name]: target.value});
   };
 
+  backClick = e => {
+    const {changePage, back} = this.props;
+    e.preventDefault();
+    changePage('personList');
+    back();
+  };
+
   render() {
     const placeholder = 'Введите значение';
     return (
@@ -40,6 +47,10 @@ class Form extends Component {
         <input type="text" name="email" value={this.state.email} placeholder={placeholder} onChange={this.handleChange} />
         <br/>
         <input type="submit" className="button__link" value="Сохранить" />
+        <br/>
+        <div className="button">
+          <a href="#" className="button__link" onClick={this.backClick}>Назад</a>
+        </div>
       </form>
     );
   }
@@ -49,4 +60,4 @@ const mapStateToProps = (state) => ({
   persons: state.persons
 });
 
-export default connect(mapStateToProps, {changePage, saveItem})(Form);
+export default connect(mapStateToProps, {changePage, saveItem, back})(Form);
