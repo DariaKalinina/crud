@@ -53,7 +53,7 @@ class PokemonList extends Component {
             {pokemonsList.map((item) =>
               <li className="pokemonList__item" key={item.id + item.weight}>
                 <a
-                  href={null}
+                  href="#"
                   className="pokemonList__link"
                   onClick={this.bindAction({
                     action: this.props.loadPokemonImgFromAPI,

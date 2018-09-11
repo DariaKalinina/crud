@@ -27,7 +27,7 @@ class PersonList extends Component {
           }
         </ul>
         <div className="button">
-          <a href={null} className="button__link" onClick={this.handleClick}>Добавить</a>
+          <a href="#" className="button__link" onClick={this.handleClick}>Добавить</a>
         </div>
       </div>
     );

@@ -49,7 +49,7 @@ class Form extends Component {
         <input type="submit" className="button__link" value="Сохранить" />
         <br/>
         <div className="button">
-          <a href={null} className="button__link" onClick={this.backClick}>Назад</a>
+          <a href="#" className="button__link" onClick={this.backClick}>Назад</a>
         </div>
       </form>
     );
