@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {changePage, saveItem, back} from './../AC';
+import {changePage, saveChangeItem, saveNewItem, back} from './../AC';
 import {connect} from 'react-redux';
 import './../index.css';
 
@@ -15,9 +15,10 @@ class Form extends Component {
   };
 
   handleSubmit = (e) => {
-    const {changePage, saveItem, person} = this.props;
+    const {changePage, saveChangeItem, saveNewItem, person} = this.props;
     e.preventDefault();
-    saveItem((person ? person.id : null), this.state);
+    const personState = this.state;
+    person ? saveChangeItem( person.id, personState) : saveNewItem(null, personState);
     changePage('personList');
   };
 
@@ -48,7 +49,7 @@ class Form extends Component {
         <input type="submit" className="button__link" value="Сохранить" />
         <br/>
         <div className="button">
-          <a href="#" className="button__link" onClick={this.backClick}>Назад</a>
+          <a href={null} className="button__link" onClick={this.backClick}>Назад</a>
         </div>
       </form>
     );
@@ -59,4 +60,4 @@ const mapStateToProps = (state) => ({
   person: state.person
 });
 
-export default connect(mapStateToProps, {changePage, saveItem, back})(Form);
+export default connect(mapStateToProps, {changePage, saveChangeItem, saveNewItem, back})(Form);

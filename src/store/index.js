@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import reducer from '../reducer';
 import randomId from '../middlewares/randomId';
-import fetch from '../middlewares/fetch';
+import thunk from 'redux-thunk';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -9,7 +9,7 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
     }) : compose;
 
-const enhancer = composeEnhancers(applyMiddleware(randomId, fetch));
+const enhancer = composeEnhancers(applyMiddleware(randomId, thunk));
 
 const store = createStore(reducer, enhancer);
 

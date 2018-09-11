@@ -29,22 +29,52 @@ class MyStorage {
     return localStorage[dbName] = JSON.stringify(storage);
   };
 
+  createUser = (id, person) => {
+    const { name, surname, phone, email } = person;
+
+    if ([name, surname, phone, email].some(el => el === undefined)) {
+      return false;
+    }
+
+    return {
+      id,
+      name,
+      surname,
+      phone,
+      email,
+    };
+  };
+
   addUser = (person, id) => {
     const store = this.storage;
-    store.push({id: id, ...person});
-    this.storage = store;
+    const newPerson = this.createUser(id, person);
+
+    if (newPerson !== false) {
+      store.push(newPerson);
+      this.storage = store;
+    }
+
+    return newPerson;
   };
 
-  changeUser = (person, id, rewrite) => {
+  changeUser = (person, id, rewritePersonIndex) => {
     const store = this.storage;
-    store.splice(rewrite, 1, {...person, id: id});
-    this.storage = store;
+    const newPerson = this.createUser(id, person);
+
+    if (newPerson !== false) {
+      store.splice(rewritePersonIndex, 1, newPerson);
+      this.storage = store;
+    }
+
+    return newPerson;
   };
 
-  deleteUser = (deleteIndex) => {
+  deleteUser = (deletePersonIndex) => {
     const store = this.storage;
-    store.splice(deleteIndex, 1);
+    let res = store.splice(deletePersonIndex, 1);
     this.storage = store;
+
+    return !!res.length;
   };
 }
 

@@ -100,3 +100,40 @@ a{
   justify-content: space-between;
 }
 
+/*------------------------Pokemon*/
+.pokemonList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.pokemonList__wrapper{
+  display: flex;
+  width: 80%;
+}
+
+.pokemonList__list{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+.pokemonList__link{
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+  padding: 10px 5px;
+}
+
+.pokemonList__title{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pokemonList__title--little{
+  font-size: 14px;
+}
+
+

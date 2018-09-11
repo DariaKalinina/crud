@@ -1,6 +1,12 @@
 export const CHANGE = 'CHANGE';
 export const DELETE = 'DELETE';
-export const SAVE = 'SAVE';
+export const SAVE_CHANGE = 'SAVE_CHANGE';
+export const SAVE_NEW_ITEM = 'SAVE_NEW_ITEM';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const BACK = 'BACK';
-export const FETCH_DATA = 'FETCH_DATA';
+export const START_POKE_LOADING = 'START_POKE_LOADING';
+export const POKE_LOADED = 'POKE_LOADED';
+export const FAIL_POKE_LOADING = 'FAIL_POKE_LOADING';
+export const START_IMG_LOADING = 'START_IMG_LOADING';
+export const IMG_LOADED = 'IMG_LOADED';
+export const FAIL_IMG_LOADING = 'FAIL_IMG_LOADING';

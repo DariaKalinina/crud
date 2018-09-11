@@ -11,7 +11,7 @@ class Person extends Component {
     changePage('changePage');
   };
 
-  deleteClick = (e) => {
+  deleteClick = e => {
     const {deleteItem, id} = this.props;
     e.preventDefault();
     deleteItem(id);
@@ -25,10 +25,10 @@ class Person extends Component {
         <div className="person__item">Телефон: {person.phone}</div>
         <div className="person__item">Электронная почта: {person.email}</div>
         <div className="button">
-          <a href="#" className="button__link" onClick={this.changeClick}>Изменить</a>
+          <a href={null} className="button__link" onClick={this.changeClick}>Изменить</a>
         </div>
         <div className="button">
-          <a href="#" className="button__link" onClick={this.deleteClick}>Удалиить</a>
+          <a href={null} className="button__link" onClick={this.deleteClick}>Удалиить</a>
         </div>
       </div>
     );
