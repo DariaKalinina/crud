@@ -4,6 +4,7 @@ const currentPageDefault = 'personList';
 
 export default function changePage(currentPage = currentPageDefault, action) {
   const { type, payload} = action;
+  console.log('test');
 
   switch (type) {
     case CHANGE_PAGE:
